@@ -2,13 +2,18 @@ def fizzBuzz(num):
 	#checks if num is divisible by 3
 	if (num%3 == 0):
 		num = "Fizz"	#change name to Fizz
+		return num
+	
+	#check if num is divisible by 5
+	if (num%5 == 0):
+		num = "Buzz"
+		return num
 
 	#convert num to type str
 	num = str(num)
 	return num
 
 def main():
-
 	#Test 1 checking we can change from type int to str
 	num1 = 10
 	if (type(fizzBuzz(num1)) == int):
@@ -29,5 +34,6 @@ def main():
 		print("Test 3: Failed")
 	elif (fizzBuzz(num3) == "Buzz"):
 		print("Test 3: Passed")
+
 if __name__ == '__main__':
      main()
