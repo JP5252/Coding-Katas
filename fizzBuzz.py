@@ -1,13 +1,15 @@
 def fizzBuzz(num):
+	#check if num is divisble by 3 and 5
+	if (num%3 == 0) and (num%5 == 0):
+		num = "FizzBuzz"
+
 	#checks if num is divisible by 3
-	if (num%3 == 0):
-		num = "Fizz"	#change name to Fizz
-		return num
+	elif (num%3 == 0):
+		num = "Fizz"
 	
 	#check if num is divisible by 5
-	if (num%5 == 0):
+	elif (num%5 == 0):
 		num = "Buzz"
-		return num
 
 	#convert num to type str
 	num = str(num)
