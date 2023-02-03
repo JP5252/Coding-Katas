@@ -6,6 +6,10 @@ def add(numbers):
 	if (numbers == ""):
 		return 0
 
+	#if string ends in seperator return error
+	elif not (numbers[-1].isnumeric()):
+		return "ERROR: Input cannot end in seperator"
+
 	#if string has multiple numbers add them
 	elif ("," in numbers):
 		#split numbers into list deliminated by newline
