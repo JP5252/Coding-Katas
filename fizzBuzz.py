@@ -1,4 +1,8 @@
 def fizzBuzz(num):
+	#checks if num is divisible by 3
+	if (num%3 == 0):
+		num = "Fizz"	#change name to Fizz
+
 	#convert num to type str
 	num = str(num)
 	return num
