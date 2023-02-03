@@ -8,6 +8,10 @@ def add(numbers):
 
 	#if string has multiple numbers add them
 	elif ("," in numbers):
+		#split numbers into list deliminated by newline
+		lineList = numbers.split("\n")
+		#put lines together deliminated by commas
+		numbers = ",".join(lineList)
 		#split numbers into list deliminated by commas
 		numList = numbers.split(",")
 		sum = 0
@@ -35,11 +39,18 @@ def main():
 	elif (add(num2) == 1):
 		print("Test 1: Passed")
 	
-	#test 3 take in string with multiple numbers return added
+	#test 3 take in string with multiple numbers split by commas return added
 	num3 = "1,2"
 	if (add(num3) != 3):
 		print("Test 1: Failed")
 	elif (add(num3) == 3):
+		print("Test 1: Passed")
+
+	#test 4 take in string with multiple numbers split by newline return added
+	num4 = "1,2\n3"
+	if (add(num4) != 6):
+		print("Test 1: Failed")
+	elif (add(num4) == 6):
 		print("Test 1: Passed")
 
 if __name__ == '__main__':
