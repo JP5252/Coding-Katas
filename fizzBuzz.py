@@ -22,5 +22,12 @@ def main():
 		print("Test 2: Failed")
 	elif (fizzBuzz(num2) == "Fizz"):
 		print("Test 2: Passed")
+	
+	#Test 3 checking that multiples of 5 return as "Buzz"
+	num3 = 10
+	if (fizzBuzz(num3) != "Buzz"):
+		print("Test 3: Failed")
+	elif (fizzBuzz(num3) == "Buzz"):
+		print("Test 3: Passed")
 if __name__ == '__main__':
      main()
