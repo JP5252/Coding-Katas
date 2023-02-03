@@ -14,9 +14,9 @@ def main():
 		print("Test 1: Passed")
 	#test 1 take in null/empty string input
 	num2 = "1"
-	if (add(num1) != 1):
+	if (add(num2 != 1):
 		print("Test 1: Failed")
-	elif (add(num1) == 1):
+	elif (add(num2) == 1):
 		print("Test 1: Passed")
 
 if __name__ == '__main__':
