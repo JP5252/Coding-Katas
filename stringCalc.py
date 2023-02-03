@@ -4,6 +4,8 @@
 def add(numbers):
 	if (numbers == ""):
 		return 0
+	else:
+		return int(numbers)
 
 def main():
 	#test 1 take in null/empty string input
@@ -14,7 +16,7 @@ def main():
 		print("Test 1: Passed")
 	#test 1 take in null/empty string input
 	num2 = "1"
-	if (add(num2 != 1):
+	if (add(num2) != 1):
 		print("Test 1: Failed")
 	elif (add(num2) == 1):
 		print("Test 1: Passed")
