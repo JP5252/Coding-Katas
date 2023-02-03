@@ -1,7 +1,9 @@
 #TDD kata 2
 
+#takes a string input split by commas and adds then then returns as int
 def add(numbers):
-	return -1
+	if (numbers == ""):
+		return 0
 
 def main():
 	#test 1 take in null/empty string input
