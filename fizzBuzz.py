@@ -1,9 +1,13 @@
 def fizzBuzz(num):
-	return type(num)
+
+	return num
 
 def main():
 	num1 = 10
-	if (fizzBuzz(num1) == type(int)):
+	if (type(fizzBuzz(num1)) == int):
 		print("Test1 Failed")
-	elif (fizzBuzz(num1) == type(str)):
+	elif (type(fizzBuzz(num1)) == str):
 		print("Test1 Passed")
+
+if __name__ == '__main__':
+     main()
