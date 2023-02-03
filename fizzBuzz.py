@@ -34,6 +34,13 @@ def main():
 		print("Test 3: Failed")
 	elif (fizzBuzz(num3) == "Buzz"):
 		print("Test 3: Passed")
+	
+	#Test 4 checking that multiples of 3 and 5 return as "FizzBuzz"
+	num4 = 15
+	if (fizzBuzz(num4) != "FizzBuzz"):
+		print("Test 4: Failed")
+	elif (fizzBuzz(num4) == "FizzBuzz"):
+		print("Test 4: Passed")
 
 if __name__ == '__main__':
      main()
