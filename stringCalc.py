@@ -2,8 +2,21 @@
 
 #takes a string input split by commas and adds then then returns as int
 def add(numbers):
+	#if string is empty return 0
 	if (numbers == ""):
 		return 0
+
+	#if string has multiple numbers add them
+	elif ("," in numbers):
+		#split numbers into list deliminated by commas
+		numList = numbers.split(",")
+		sum = 0
+		#add and return
+		for num in numList:
+			sum += int(num)
+		return sum
+	
+	#if string has just one number return as int
 	else:
 		return int(numbers)
 
