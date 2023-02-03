@@ -35,23 +35,30 @@ def main():
 	#test 2 take in string return int
 	num2 = "1"
 	if (add(num2) != 1):
-		print("Test 1: Failed")
+		print("Test 2: Failed")
 	elif (add(num2) == 1):
-		print("Test 1: Passed")
+		print("Test 2: Passed")
 	
 	#test 3 take in string with multiple numbers split by commas return added
 	num3 = "1,2"
 	if (add(num3) != 3):
-		print("Test 1: Failed")
+		print("Test 3: Failed")
 	elif (add(num3) == 3):
-		print("Test 1: Passed")
+		print("Test 3: Passed")
 
 	#test 4 take in string with multiple numbers split by newline return added
 	num4 = "1,2\n3"
 	if (add(num4) != 6):
-		print("Test 1: Failed")
+		print("Test 4: Failed")
 	elif (add(num4) == 6):
-		print("Test 1: Passed")
+		print("Test 4: Passed")
+
+	#test 5 take in string with multiple numbers split by newline return added
+	num5 = "1,2,"
+	if (add(num5) != "ERROR: Input cannot end in seperator"):
+		print("Test 5: Failed")
+	elif (add(num5) == "ERROR: Input cannot end in seperator"):
+		print("Test 5: Passed")
 
 if __name__ == '__main__':
      main()
