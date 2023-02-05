@@ -2,6 +2,16 @@
 
 #takes a string input split by commas and adds then then returns as int
 def add(numbers):
+	#initiate delim var as comma
+	delim = ","
+
+	#change delim if input starts as "//"
+	if (numbers[0:1] == "/"):
+		#change delim to given delim
+		delim = numbers[2]
+		#changes string numbers to only start after newline
+		numbers = numbers[numbers.index("\n")+1:]
+
 	#if string is empty return 0
 	if (numbers == ""):
 		return 0
@@ -11,13 +21,13 @@ def add(numbers):
 		return "ERROR: Input cannot end in seperator"
 
 	#if string has multiple numbers add them
-	elif ("," in numbers):
+	elif (delim in numbers):
 		#split numbers into list deliminated by newline
 		lineList = numbers.split("\n")
 		#put lines together deliminated by commas
-		numbers = ",".join(lineList)
+		numbers = delim.join(lineList)
 		#split numbers into list deliminated by commas
-		numList = numbers.split(",")
+		numList = numbers.split(delim)
 		sum = 0
 		#add and return
 		for num in numList:
