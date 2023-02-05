@@ -63,6 +63,13 @@ def main():
 		print("Test 5: Failed")
 	elif (add(num5) == "ERROR: Input cannot end in seperator"):
 		print("Test 5: Passed")
+	
+	#test 6 ability to change delimiter
+	num6 = "//;\n1;3"
+	if (add(num6) != 4):
+		print("Test 6: Failed")
+	elif (add(num6) == 4):
+		print("Test 6: Passed")
 
 if __name__ == '__main__':
      main()
