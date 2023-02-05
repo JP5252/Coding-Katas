@@ -80,6 +80,14 @@ def main():
 		print("Test 6: Failed")
 	elif (add(num6) == 4):
 		print("Test 6: Passed")
+	
+	#test 7 checiking for invalid characters/deliminators
+	num7 = "//|\n1|2,3"
+	if (add(num7) != "'|’ expected but ‘,’ found at position 3."):
+		print("Test 7: Failed")
+	elif (add(num6) == "'|’ expected but ‘,’ found at position 3."):
+		print("Test 6: Passed")
+	
 
 if __name__ == '__main__':
      main()
