@@ -56,6 +56,8 @@ def add(numbers):
 		sum = 0
 		#add and return
 		for num in numList:
+			if (int(num) > 1000):
+				continue
 			sum += int(num)
 		return sum
 	
@@ -106,27 +108,33 @@ def main():
 	elif (add(num6) == 4):
 		print("Test 6: Passed")
 	
-	#test 7 checiking for invalid characters/deliminators
+	#test 7 checking for invalid characters/deliminators
 	num7 = "//|\n1|2,3"
 	if (add(num7) != "ERROR: '|' expected but ',' found at position 3."):
 		print("Test 7: Failed")
 	elif (add(num7) == "ERROR: '|' expected but ',' found at position 3."):
 		print("Test 7: Passed")
 	
-	#test 8 checiking for invalid characters/deliminators
+	#test 8 checking for negative numbers
 	num8 = "-2,-9"
 	if (add(num8) != "ERROR: Negative number(s) not allowed: -2, -9"):
 		print("Test 8: Failed")
 	elif (add(num8) == "ERROR: Negative number(s) not allowed: -2, -9"):
 		print("Test 8: Passed")
 
-	#test 9 checiking for invalid characters/deliminators
+	#test 9 checking for invalid characters/deliminators
 	num9 = "//|\n1|2,-3"
 	if (add(num9) != "ERROR: '|' expected but ',' found at position 3.\nERROR: Negative number(s) not allowed: -3"):
 		print("Test 9: Failed")
 	elif (add(num9) == "ERROR: '|' expected but ',' found at position 3.\nERROR: Negative number(s) not allowed: -3"):
 		print("Test 9: Passed")
 	
+	#test 10 checking for numbers over 1000
+	num10 = "2,1001"
+	if (add(num10) != 2):
+		print("Test 10: Failed")
+	elif (add(num10) == 2):
+		print("Test 10: Passed")
 
 if __name__ == '__main__':
      main()
