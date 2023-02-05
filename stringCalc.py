@@ -11,6 +11,13 @@ def add(numbers):
 		delim = numbers[2]
 		#changes string numbers to only start after newline
 		numbers = numbers[numbers.index("\n")+1:]
+	
+	#checking for illegal characters that are not delim or num
+	for ch in numbers:
+		if not (ch.isnumeric()):
+			if (ch != delim and ch != "\n"):
+				return ("ERROR: '" + delim + "' expected but '" + ch + \
+					   "' found at position " + str(numbers.index(ch)) + ".")
 
 	#if string is empty return 0
 	if (numbers == ""):
@@ -83,10 +90,10 @@ def main():
 	
 	#test 7 checiking for invalid characters/deliminators
 	num7 = "//|\n1|2,3"
-	if (add(num7) != "'|’ expected but ‘,’ found at position 3."):
+	if (add(num7) != "ERROR: '|' expected but ',' found at position 3."):
 		print("Test 7: Failed")
-	elif (add(num6) == "'|’ expected but ‘,’ found at position 3."):
-		print("Test 6: Passed")
+	elif (add(num7) == "ERROR: '|' expected but ',' found at position 3."):
+		print("Test 7: Passed")
 	
 
 if __name__ == '__main__':
