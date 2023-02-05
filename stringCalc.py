@@ -2,6 +2,13 @@
 
 #takes a string input split by commas and adds then then returns as int
 def add(numbers):
+	#if string is empty return 0
+	if (numbers == ""):
+		return 0
+
+	#intitate error list
+	errors = []
+
 	#initiate delim var as comma
 	delim = ","
 
@@ -14,25 +21,29 @@ def add(numbers):
 	
 	#checking for illegal characters that are not delim, \n or +num
 	negative_nums = []
+	index = 0
 	for ch in numbers:
 		if (ch == "-"):
-			negative_nums.append(numbers.index(ch))
+			negative_nums.append(str(numbers[index + 1]))
 		if not (ch.isnumeric()):
 			if (ch != delim and ch != "\n" and ch != "-"):
-				return ("ERROR: '" + delim + "' expected but '" + ch + \
+				errors.append("ERROR: '" + delim + "' expected but '" + ch + \
 					   "' found at position " + str(numbers.index(ch)) + ".")
-	
-	print (len(negative_nums))
-	if (len(negative_nums) != 0):
-		return ("ERROR: Negative number(s) not allowed. -2, -9")
-	
-	#if string is empty return 0
-	if (numbers == ""):
-		return 0
+		index += 1
 
+	#if there are negative nums return error
+	if (len(negative_nums) != 0):
+		errors.append("ERROR: Negative number(s) not allowed: -" + \
+			", -".join(negative_nums))
+	
 	#if string ends in seperator return error
-	elif not (numbers[-1].isnumeric()):
-		return "ERROR: Input cannot end in seperator"
+	if not (numbers[-1].isnumeric()):
+		errors.append("ERROR: Input cannot end in seperator")
+	
+	#return logic
+	#if error list is not empty return errors
+	if (len(errors) != 0):
+		return "\n".join(errors)
 
 	#if string has multiple numbers add them
 	elif (delim in numbers):
@@ -104,16 +115,16 @@ def main():
 	
 	#test 8 checiking for invalid characters/deliminators
 	num8 = "-2,-9"
-	if (add(num8) != "ERROR: Negative number(s) not allowed. -2, -9"):
+	if (add(num8) != "ERROR: Negative number(s) not allowed: -2, -9"):
 		print("Test 8: Failed")
-	elif (add(num8) == "ERROR: Negative number(s) not allowed. -2, -9"):
+	elif (add(num8) == "ERROR: Negative number(s) not allowed: -2, -9"):
 		print("Test 8: Passed")
 
 	#test 9 checiking for invalid characters/deliminators
 	num9 = "//|\n1|2,-3"
-	if (add(num9) != "ERROR: Negative number(s) not allowed: -3\nERROR: '|' expected but ',' found at position 3."):
+	if (add(num9) != "ERROR: '|' expected but ',' found at position 3.\nERROR: Negative number(s) not allowed: -3"):
 		print("Test 9: Failed")
-	elif (add(num9) == "ERROR: Negative number(s) not allowed: -3\nERROR: '|' expected but ',' found at position 3."):
+	elif (add(num9) == "ERROR: '|' expected but ',' found at position 3.\nERROR: Negative number(s) not allowed: -3"):
 		print("Test 9: Passed")
 	
 
