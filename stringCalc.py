@@ -95,6 +95,13 @@ def main():
 	elif (add(num7) == "ERROR: '|' expected but ',' found at position 3."):
 		print("Test 7: Passed")
 	
+	#test 8 checiking for invalid characters/deliminators
+	num8 = "-2, -9"
+	if (add(num8) != "ERROR: Negative number(s) not allowed. -2, -9"):
+		print("Test 8: Failed")
+	elif (add(num8) == "ERROR: Negative number(s) not allowed. -2, -9"):
+		print("Test 8: Passed")
+	
 
 if __name__ == '__main__':
      main()
