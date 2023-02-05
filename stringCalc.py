@@ -12,13 +12,20 @@ def add(numbers):
 		#changes string numbers to only start after newline
 		numbers = numbers[numbers.index("\n")+1:]
 	
-	#checking for illegal characters that are not delim or num
+	#checking for illegal characters that are not delim, \n or +num
+	negative_nums = []
 	for ch in numbers:
+		if (ch == "-"):
+			negative_nums.append(numbers.index(ch))
 		if not (ch.isnumeric()):
-			if (ch != delim and ch != "\n"):
+			if (ch != delim and ch != "\n" and ch != "-"):
 				return ("ERROR: '" + delim + "' expected but '" + ch + \
 					   "' found at position " + str(numbers.index(ch)) + ".")
-
+	
+	print (len(negative_nums))
+	if (len(negative_nums) != 0):
+		return ("ERROR: Negative number(s) not allowed. -2, -9")
+	
 	#if string is empty return 0
 	if (numbers == ""):
 		return 0
@@ -96,7 +103,7 @@ def main():
 		print("Test 7: Passed")
 	
 	#test 8 checiking for invalid characters/deliminators
-	num8 = "-2, -9"
+	num8 = "-2,-9"
 	if (add(num8) != "ERROR: Negative number(s) not allowed. -2, -9"):
 		print("Test 8: Failed")
 	elif (add(num8) == "ERROR: Negative number(s) not allowed. -2, -9"):
